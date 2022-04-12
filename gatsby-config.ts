@@ -1,9 +1,10 @@
+import register from 'ts-node';
 import type { GatsbyConfig } from "gatsby";
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `harisr92@github.io`,
-    siteUrl: `https://www.yourdomain.tld`
+    title: `harisr92.github.io`,
+    siteUrl: `https://harisr92.github.io`
   },
   plugins: ["gatsby-plugin-react-helmet", {
     resolve: 'gatsby-plugin-manifest',
@@ -17,6 +18,16 @@ const config: GatsbyConfig = {
       "path": "./src/pages/"
     },
     __key: "pages"
+  },
+  `gatsby-transformer-remark`,
+  `gatsby-plugin-emotion`,
+  `gatsby-plugin-sharp`,
+  `gatsby-transformer-sharp`,
+  {
+    resolve: `gatsby-plugin-typography`,
+    options: {
+      pathToConfigModule: `src/utils/typography`,
+    },
   }]
 };
 
