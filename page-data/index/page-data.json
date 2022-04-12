@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-pages-index-tsx",
     "path": "/",
-    "result": {"data":{"site":{"siteMetadata":{"title":"Harikrishnan | Home","description":"Personal website for Harikrishnan Namboothiri"}}},"pageContext":{}},
+    "result": {"data":{"allMarkdownRemark":{"totalCount":1,"edges":[{"node":{"id":"fdc0c8af-6713-5a70-b286-6e81a574d167","frontmatter":{"title":"Is ruby fading","date":"12 April, 2022"},"excerpt":"Ruby have been on earth for many years.","fields":{"slug":"/blogs/2022-04-12/is-ruby-fading/"}}}]}},"pageContext":{}},
     "staticQueryHashes": []}
