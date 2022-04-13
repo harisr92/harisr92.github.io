@@ -30,6 +30,9 @@ const BlogPost: React.FC<PageProps<GraphQLResults>> = ({ data }) => {
       </Layout>
   )
 }
+
+export default BlogPost;
+
 export const query = graphql`
   query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
@@ -47,5 +50,3 @@ export const query = graphql`
     }
   }
 `
-
-export default BlogPost;
