@@ -23,6 +23,7 @@ const config: GatsbyConfig = {
   `gatsby-plugin-emotion`,
   `gatsby-plugin-sharp`,
   `gatsby-transformer-sharp`,
+  `gatsby-plugin-sass`,
   {
     resolve: `gatsby-plugin-typography`,
     options: {
@@ -30,5 +31,9 @@ const config: GatsbyConfig = {
     },
   }]
 };
+
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`
+})
 
 export default config;

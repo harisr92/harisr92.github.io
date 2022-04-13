@@ -2,28 +2,21 @@ import React from "react"
 import { css } from "@emotion/core"
 import { Link } from "gatsby"
 import { rhythm } from "../utils/typography"
+import Aside from "./Aside/Aside";
+import "react-pro-sidebar/dist/css/styles.css";
+import "./Aside/Aside.scss";
+import "./layout.css";
 
 const Layout: React.FC = ({ children }) => {
   return (
-    <div
-      css={css`
+    <div css={css`
         margin: 0 auto;
-        max-width: 700px;
+        max-width: 800px;
         padding: ${rhythm(2)};
         padding-top: ${rhythm(1.5)};
       `}
     >
-    <Link to={`/`}>
-        <h3
-          css={css`
-            margin-bottom: ${rhythm(2)};
-            display: inline-block;
-            font-style: normal;
-          `}
-        >
-          Harikrishnan Namboothiri
-        </h3>
-      </Link>
+      <Aside />
       {children}
     </div>
   )
