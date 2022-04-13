@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkharisr92_github_io=self.webpackChunkharisr92_github_io||[]).push([[850],{9208:function(o,e,l){l.r(e);var t=l(4916);e.default=function(o){var e=o.location,l=o.pageContext;return console.log("location",e),console.log("pageContext",l),"New York",console.log("city","New York"),(0,t.tZ)("div",null,"Hello world!")}}}]);
-//# sourceMappingURL=component---src-pages-typescript-tsx-a6c838238745a6fc8385.js.map
