@@ -1,19 +1,15 @@
 import { css } from "@emotion/core";
 import { PageProps } from "gatsby";
 import React from "react"
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
+import Seo from '../components/Seo';
 
 function myDetails(): React.FC<PageProps> {
   return (
     <Layout>
+      <Seo title="Home" />
       <div>
-        <h1 css={css`
-          display: inline-block;
-          border-bottom: 1px solid;
-          `}
-        >
-          A little about me
-        </h1>
+        <Layout.Heading title="A little about me" />
       </div>
     </Layout>
   )

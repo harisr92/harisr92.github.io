@@ -1,7 +1,6 @@
 import React from "react"
 import { graphql, PageProps } from "gatsby"
-import Layout from "../components/layout"
-import HelmetHead from "../components/helmet"
+import Layout from "../components/Layout"
 import { MarkdownRemark } from "../entities/markdown-remark"
 import Img from "gatsby-image"
 import { css } from "@emotion/core"
@@ -16,9 +15,6 @@ const BlogPost: React.FC<PageProps<GraphQLResults>> = ({ data }) => {
 
   return (
       <Layout>
-          <HelmetHead>
-            <title>Blog | {post.frontmatter.title}</title>
-          </HelmetHead>
           <div>
             <h1>{post.frontmatter.title}</h1>
             <Img fluid={featuredImgFluid} />

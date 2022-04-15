@@ -1,5 +1,5 @@
 import React from "react"
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 import { css } from "@emotion/core";
 import { graphql, Link, PageProps } from "gatsby";
 import { MarkdownRemark } from "../entities/markdown-remark";
@@ -22,14 +22,7 @@ const BlogIndex: React.FC<PageProps<GraphQLData>> = ({
   return (
     <Layout>
       <div>
-        <h1
-          css={css`
-            display: inline-block;
-            border-bottom: 1px solid;
-          `}
-        >
-          My experiences and notes
-        </h1>
+        <Layout.Heading title="My experiences and notes" />
         <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <div key={node.id}>
