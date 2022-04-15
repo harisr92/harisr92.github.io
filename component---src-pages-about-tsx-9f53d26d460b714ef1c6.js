@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkharisr92_github_io=self.webpackChunkharisr92_github_io||[]).push([[49],{3691:function(t,u,i){i.r(u);var r=i(3704),a=i(9126),e=i(6340);u.default=function(t){t.data;return(0,e.tZ)(r.Z,null,(0,e.tZ)(a.Z,{title:"About"}))}}}]);
+//# sourceMappingURL=component---src-pages-about-tsx-9f53d26d460b714ef1c6.js.map
