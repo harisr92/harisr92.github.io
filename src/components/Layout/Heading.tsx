@@ -15,7 +15,7 @@ const Heading: React.FC<PageProps<Props>> = ({
             border-bottom: 1px solid;
             `}
         >
-            A little about me
+            {title}
         </h1>
     )
 }
