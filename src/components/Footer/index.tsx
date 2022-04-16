@@ -14,7 +14,7 @@ const Footer: FC = () => {
       <a href="https://www.gatsbyjs.com">Gatsby</a>
       <nav style={{ margin: '1rem 0' }}>
         <a
-          href="//github.com/"
+          href="//github.com/harisr92"
           target="_blank"
           style={{ margin: '0 0.75rem' }}
         >
@@ -31,7 +31,7 @@ const Footer: FC = () => {
           </svg>
         </a>
         <a
-          href="//linkedin.com/"
+          href="//linkedin.com/in/harikrishnan-namboothiri"
           target="_blank"
           style={{ margin: '0 0.75rem' }}
         >
@@ -48,7 +48,7 @@ const Footer: FC = () => {
           </svg>
         </a>
         <a
-          href="//twitter.com/"
+          href="//twitter.com/harikr92"
           target="_blank"
           style={{ margin: '0 0.75rem' }}
         >

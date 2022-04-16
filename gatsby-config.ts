@@ -6,7 +6,7 @@ const config: GatsbyConfig = {
     title: `Harikrishnan`,
     siteUrl: `https://harisr92.github.io`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `harikr92`,
     },
   },
   plugins: [

@@ -10,6 +10,9 @@ const AboutIndex: React.FC<PageProps> = ({
     return (
         <Layout>
             <Seo title="About" />
+            <div>
+                <Layout.Heading title="Contact" />
+            </div>
         </Layout>
     )
 }
