@@ -2,4 +2,4 @@
     "componentChunkName": "component---src-pages-blogs-tsx",
     "path": "/blogs/",
     "result": {"data":{"allMarkdownRemark":{"totalCount":1,"edges":[{"node":{"id":"00bfb91f-2e1c-53e2-b10f-6ae14b27babe","frontmatter":{"title":"Buliding blogs","date":"12 April, 2022"},"excerpt":"Blogs are coming soon","fields":{"slug":"/blogs/2022-04-12/coming-soon/"}}}]}},"pageContext":{}},
-    "staticQueryHashes": ["2231395945"]}
+    "staticQueryHashes": ["1493289536"]}
