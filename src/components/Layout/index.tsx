@@ -5,6 +5,7 @@ import { rhythm } from "../../utils/typography"
 import Header from '../Header'
 import Footer from '../Footer'
 import Heading from "./Heading"
+import Container from "./Container"
 
 const Layout: React.FC = ({ children }) => {
   return (
@@ -23,5 +24,6 @@ const Layout: React.FC = ({ children }) => {
 }
 
 Layout.Heading = Heading
+Layout.Container = Container
 
 export default Layout;

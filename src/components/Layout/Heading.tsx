@@ -14,7 +14,7 @@ const Heading: React.FC<PageProps<Props>> = ({
             display: inline-block;
             border-bottom: 1px solid;
             `}
-        >
+            >
             {title}
         </h1>
     )
