@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkharisr92_github_io=self.webpackChunkharisr92_github_io||[]).push([[691],{4730:function(t,n,e){e.r(n);var u=e(3704),i=e(9126),l=e(6340);n.default=function(t){t.data;return"enabled"==={}.GATSBY_MAINTENANCE?(0,l.tZ)("div",null,(0,l.tZ)("h1",null,"Site under maintance"),(0,l.tZ)("span",null,"Thank you for understanding")):(0,l.tZ)(u.Z,null,(0,l.tZ)(i.Z,{title:"Home"}),(0,l.tZ)("div",null,(0,l.tZ)(u.Z.Heading,{title:"A little about me"})))}}}]);
-//# sourceMappingURL=component---src-pages-index-tsx-bb39bf2dc8e74175b8b7.js.map
