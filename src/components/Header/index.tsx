@@ -58,12 +58,13 @@ const Header: FC = () => {
           borderRadius: 'var(--radius-md)',
         }}
         className="mobile-menu-toggle"
+        aria-label="Toggle mobile menu"
       >
-        ☰
+        {isMenuOpen ? '✕' : '☰'}
       </button>
 
       <nav 
-        className={isMenuOpen ? 'show' : ''}
+        className={`nav-menu ${isMenuOpen ? 'show' : ''}`}
         style={{ 
           display: 'flex', 
           gap: '2rem',
@@ -78,6 +79,7 @@ const Header: FC = () => {
             fontWeight: 'var(--fontWeight-medium)',
             transition: 'all var(--transition-normal)'
           }}
+          onClick={() => setIsMenuOpen(false)}
         >
           Home
         </Link>
@@ -90,6 +92,7 @@ const Header: FC = () => {
             fontWeight: 'var(--fontWeight-medium)',
             transition: 'all var(--transition-normal)'
           }}
+          onClick={() => setIsMenuOpen(false)}
         >
           Blog
         </Link>
@@ -102,6 +105,7 @@ const Header: FC = () => {
             fontWeight: 'var(--fontWeight-medium)',
             transition: 'all var(--transition-normal)'
           }}
+          onClick={() => setIsMenuOpen(false)}
         >
           About
         </Link>

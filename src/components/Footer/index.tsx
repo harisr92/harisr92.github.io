@@ -21,6 +21,14 @@ const Footer: FC = () => {
         >
           Gatsby
         </a>
+        {' '}and enhanced with{' '}
+        <a 
+          href="https://claude.ai/code" 
+          className="text-gradient"
+          style={{ textDecoration: 'none', fontWeight: 'var(--fontWeight-medium)' }}
+        >
+          Claude Code
+        </a>
       </p>
       <nav style={{ 
         display: 'flex', 
