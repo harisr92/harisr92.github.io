@@ -331,6 +331,37 @@ a:focus {
   }
 }
 
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: block !important;
+    background: var(--glass-bg) !important;
+    border: 1px solid var(--glass-border) !important;
+    transition: all var(--transition-normal);
+  }
+  
+  .mobile-menu-toggle:hover {
+    background: var(--glass-bg-hover) !important;
+    transform: scale(1.05);
+  }
+}
+
+/* Desktop navigation - ensure it's always visible */
+@media (min-width: 769px) {
+  .mobile-menu-toggle {
+    display: none !important;
+  }
+  
+  .glass-nav .nav-menu {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 2rem !important;
+    width: auto !important;
+    margin-top: 0 !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 /* Custom classes */
 
 .global-wrapper {
@@ -470,11 +501,40 @@ a:focus {
 .grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
 .grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
 
+/* Mobile-first responsive improvements */
+@media (max-width: 360px) {
+  :root {
+    --fontSize-7: 1.5rem;
+    --fontSize-6: 1.25rem;
+    --fontSize-3: 0.9rem;
+    --fontSize-2: 0.8rem;
+    --fontSize-1: 0.75rem;
+  }
+  
+  .global-wrapper {
+    padding: var(--spacing-3) var(--spacing-2);
+  }
+  
+  .glass-card {
+    padding: var(--spacing-3);
+    margin-bottom: var(--spacing-3);
+  }
+  
+  .btn {
+    padding: var(--spacing-2);
+    font-size: var(--fontSize-0);
+    min-width: 100px;
+  }
+}
+
 /* Media queries */
 
 @media (max-width: 768px) {
   :root {
     --fontSize-7: 2.5rem;
+    --fontSize-6: 2rem;
+    --fontSize-3: 1rem;
+    --fontSize-2: 0.9rem;
     --spacing-10: 1.5rem;
     --spacing-5: 1rem;
   }
@@ -494,31 +554,73 @@ a:focus {
     padding: var(--spacing-4);
   }
   
-  .glass-nav nav {
-    display: none;
+  .glass-nav .nav-menu {
+    display: none !important;
     flex-direction: column;
     gap: var(--spacing-2) !important;
     width: 100%;
     margin-top: var(--spacing-4);
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all var(--transition-normal);
   }
   
-  .glass-nav nav.show {
-    display: flex;
-  }
-  
-  .glass-nav:target nav,
-  .glass-nav.menu-open nav {
-    display: flex;
+  .glass-nav .nav-menu.show {
+    display: flex !important;
+    opacity: 1;
+    transform: translateY(0);
   }
   
   .grid-cols-2,
   .grid-cols-3 {
     grid-template-columns: 1fr;
+    gap: var(--spacing-4);
   }
   
   .btn {
-    padding: var(--spacing-2) var(--spacing-4);
+    padding: var(--spacing-3) var(--spacing-4);
     font-size: var(--fontSize-1);
+    min-width: 140px;
+  }
+  
+  /* Better button layout on mobile */
+  .action-buttons {
+    flex-direction: column !important;
+    align-items: center;
+    gap: var(--spacing-3) !important;
+  }
+  
+  /* Improve stats grid on mobile */
+  .stats-grid {
+    gap: var(--spacing-4) !important;
+  }
+  
+  .stats-grid .glass {
+    padding: var(--spacing-4) !important;
+  }
+  
+  /* Better responsive job experience layout */
+  div[style*="display: flex"][style*="justify-content: space-between"] {
+    flex-direction: column !important;
+    gap: var(--spacing-2);
+  }
+  
+  /* Contact buttons responsive layout */
+  div[style*="display: flex"][style*="justifyContent: center"] {
+    flex-direction: column !important;
+    align-items: center;
+    gap: var(--spacing-2) !important;
+  }
+  
+  /* Improve mobile text readability */
+  p[style*="fontSize: var(--fontSize-3)"] {
+    font-size: var(--fontSize-2) !important;
+    line-height: 1.6 !important;
+  }
+  
+  /* Better mobile heading sizes */
+  h1, h2, h3 {
+    line-height: 1.3 !important;
   }
   
   blockquote {
@@ -534,8 +636,11 @@ a:focus {
 
 @media (max-width: 480px) {
   :root {
-    --fontSize-7: 2rem;
-    --fontSize-6: 1.75rem;
+    --fontSize-7: 1.75rem;
+    --fontSize-6: 1.5rem;
+    --fontSize-3: 0.95rem;
+    --fontSize-2: 0.85rem;
+    --fontSize-1: 0.8rem;
   }
   
   .global-wrapper {
@@ -545,6 +650,23 @@ a:focus {
   .glass-card {
     padding: var(--spacing-4);
     border-radius: var(--radius-lg);
+  }
+  
+  /* Stack grid items with more spacing */
+  .grid {
+    gap: var(--spacing-3);
+  }
+  
+  /* Improve very small screen button layout */
+  .btn {
+    padding: var(--spacing-2) var(--spacing-3);
+    font-size: var(--fontSize-0);
+    min-width: 120px;
+  }
+  
+  /* Better text scaling for very small screens */
+  h3 {
+    font-size: var(--fontSize-3) !important;
   }
 }
 

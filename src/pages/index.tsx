@@ -44,18 +44,18 @@ function myDetails(): JSX.Element {
               optimization with proven success in driving user growth and revenue gains.
             </p>
             
-            <div className="grid grid-cols-3" style={{ marginBottom: '2rem', gap: 'var(--spacing-6)' }}>
-              <div className="glass" style={{ padding: 'var(--spacing-6)', textAlign: 'center' }}>
-                <h3 style={{ color: 'var(--color-primary)', marginBottom: 'var(--spacing-2)' }}>5,000+</h3>
-                <p style={{ fontSize: 'var(--fontSize-1)', color: 'var(--color-text-light)' }}>Daily API Requests</p>
+            <div className="grid grid-cols-3 stats-grid" style={{ marginBottom: '2rem', gap: 'var(--spacing-6)' }}>
+              <div className="glass" style={{ padding: 'var(--spacing-4)', textAlign: 'center' }}>
+                <h3 style={{ color: 'var(--color-primary)', marginBottom: 'var(--spacing-2)', fontSize: 'var(--fontSize-5)' }}>5,000+</h3>
+                <p style={{ fontSize: 'var(--fontSize-1)', color: 'var(--color-text-light)', lineHeight: '1.4' }}>Daily API Requests</p>
               </div>
-              <div className="glass" style={{ padding: 'var(--spacing-6)', textAlign: 'center' }}>
-                <h3 style={{ color: 'var(--color-primary)', marginBottom: 'var(--spacing-2)' }}>40%</h3>
-                <p style={{ fontSize: 'var(--fontSize-1)', color: 'var(--color-text-light)' }}>Performance Improvement</p>
+              <div className="glass" style={{ padding: 'var(--spacing-4)', textAlign: 'center' }}>
+                <h3 style={{ color: 'var(--color-primary)', marginBottom: 'var(--spacing-2)', fontSize: 'var(--fontSize-5)' }}>40%</h3>
+                <p style={{ fontSize: 'var(--fontSize-1)', color: 'var(--color-text-light)', lineHeight: '1.4' }}>Performance Improvement</p>
               </div>
-              <div className="glass" style={{ padding: 'var(--spacing-6)', textAlign: 'center' }}>
-                <h3 style={{ color: 'var(--color-primary)', marginBottom: 'var(--spacing-2)' }}>30%</h3>
-                <p style={{ fontSize: 'var(--fontSize-1)', color: 'var(--color-text-light)' }}>Database Load Reduction</p>
+              <div className="glass" style={{ padding: 'var(--spacing-4)', textAlign: 'center' }}>
+                <h3 style={{ color: 'var(--color-primary)', marginBottom: 'var(--spacing-2)', fontSize: 'var(--fontSize-5)' }}>30%</h3>
+                <p style={{ fontSize: 'var(--fontSize-1)', color: 'var(--color-text-light)', lineHeight: '1.4' }}>Database Load Reduction</p>
               </div>
             </div>
 
@@ -69,7 +69,7 @@ function myDetails(): JSX.Element {
               with planned blockchain integration using <span className="text-gradient">Solana</span>.
             </p>
             
-            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <div className="action-buttons" style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
               <a href="/about" className="btn btn-primary">
                 View Experience
               </a>

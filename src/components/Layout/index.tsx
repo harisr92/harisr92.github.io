@@ -16,13 +16,7 @@ const Layout: React.FC<LayoutProps> & {
   Container: typeof Container;
 } = ({ children }) => {
   return (
-    <div css={css`
-        margin: 0 auto;
-        max-width: 800px;
-        padding: ${rhythm(2)};
-        padding-top: ${rhythm(1.5)};
-      `}
-    >
+    <div className="global-wrapper">
         <Header />
         <main>{children}</main>
         <Footer />
