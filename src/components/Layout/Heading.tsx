@@ -6,7 +6,7 @@ interface Props {
     title?: string
 }
 
-const Heading: React.FC<PageProps<Props>> = ({
+const Heading: React.FC<Props> = ({
     title
 }) => {
     return (

@@ -4,7 +4,7 @@ import React from "react"
 import Layout from "../components/Layout"
 import Seo from '../components/Seo';
 
-function myDetails(): React.FC<PageProps> {
+function myDetails(): JSX.Element {
   return (
     <Layout>
       <Seo title="Home" />
@@ -87,7 +87,7 @@ function myDetails(): React.FC<PageProps> {
   )
 }
 
-function underMaintenance(): React.FS<PageProps> {
+function underMaintenance(): JSX.Element {
   return (
       <div>
         <h1>Site under maintance</h1>
@@ -96,13 +96,11 @@ function underMaintenance(): React.FS<PageProps> {
   )
 }
 
-const Home: React.FC<PageProps> = ({
-  data
-}) => {
+const Home: React.FC<PageProps> = () => {
   if(process.env.GATSBY_MAINTENANCE === "enabled") {
-    return (underMaintenance())
+    return underMaintenance()
   } else {
-    return(myDetails())
+    return myDetails()
   }
 }
 

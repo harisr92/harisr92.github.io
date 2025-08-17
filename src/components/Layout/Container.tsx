@@ -2,7 +2,7 @@ import React from "react"
 import { PageProps} from "gatsby"
 import { css } from "@emotion/core";
 
-const Container: React.FC<PageProps> = ({
+const Container: React.FC<{ children?: React.ReactNode }> = ({
     children
 }) => {
     return (
