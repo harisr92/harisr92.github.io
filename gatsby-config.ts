@@ -3,10 +3,16 @@ import type { GatsbyConfig } from "gatsby";
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `Harikrishnan`,
+    title: `Harikrishnan Namboothiri`,
+    description: `Senior Backend Engineer with 8+ years of experience in high-scale API development, Ruby on Rails, AWS, and performance optimization. Specialized in scaling SaaS platforms to millions of monthly transactions.`,
+    author: `Harikrishnan Namboothiri`,
     siteUrl: `https://harisr92.github.io`,
+    keywords: `Ruby on Rails, Backend Engineer, AWS, API Development, Performance Optimization, PostgreSQL, DevOps, Rust, React`,
     social: {
-      twitter: `harikr92`,
+      linkedin: `harikrishnan-namboothiri`,
+      github: `harisr92`,
+      email: `harikrishnansr92@gmail.com`,
+      website: `harisr92.github.io`,
     },
   },
   plugins: [

@@ -1,8 +1,10 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import Image from 'gatsby-image';
 
 const Header: FC = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
   const data = useStaticQuery(graphql`
     query {
       logo: file(absolutePath: { regex: "/coming-soon.png/" }) {
@@ -18,22 +20,91 @@ const Header: FC = () => {
   const logo = data?.logo?.childImageSharp?.fixed;
 
   return (
-    <header style={{
+    <header className="glass-nav" style={{
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
-      marginBottom: '1.5rem',
+      position: 'sticky',
+      top: '1rem',
+      zIndex: 100,
+      flexWrap: 'wrap',
     }}>
-      <Image
-        fixed={logo}
-        alt="logo"
-        className="logo"
-      />
+      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+        <Image
+          fixed={logo}
+          alt="logo"
+          className="logo"
+          style={{ borderRadius: '50%' }}
+        />
+        <span style={{ 
+          fontWeight: 'var(--fontWeight-bold)', 
+          fontSize: 'var(--fontSize-3)',
+          color: 'var(--color-heading)'
+        }}>
+          Harikrishnan
+        </span>
+      </div>
 
-      <nav>
-        <Link style={{ marginLeft: '1rem' }} to="/">Home</Link>
-        <Link style={{ marginLeft: '1rem' }} to="/blogs">Blog</Link>
-        <Link style={{ marginLeft: '1rem' }} to="/about">About</Link>
+      <button
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+        style={{
+          display: 'none',
+          background: 'none',
+          border: 'none',
+          fontSize: '1.5rem',
+          color: 'var(--color-text)',
+          cursor: 'pointer',
+          padding: '0.5rem',
+          borderRadius: 'var(--radius-md)',
+        }}
+        className="mobile-menu-toggle"
+      >
+        ☰
+      </button>
+
+      <nav 
+        className={isMenuOpen ? 'show' : ''}
+        style={{ 
+          display: 'flex', 
+          gap: '2rem',
+        }}
+      >
+        <Link 
+          to="/" 
+          className="btn-glass"
+          style={{ 
+            padding: '0.5rem 1rem',
+            textDecoration: 'none',
+            fontWeight: 'var(--fontWeight-medium)',
+            transition: 'all var(--transition-normal)'
+          }}
+        >
+          Home
+        </Link>
+        <Link 
+          to="/blogs" 
+          className="btn-glass"
+          style={{ 
+            padding: '0.5rem 1rem',
+            textDecoration: 'none',
+            fontWeight: 'var(--fontWeight-medium)',
+            transition: 'all var(--transition-normal)'
+          }}
+        >
+          Blog
+        </Link>
+        <Link 
+          to="/about" 
+          className="btn-glass"
+          style={{ 
+            padding: '0.5rem 1rem',
+            textDecoration: 'none',
+            fontWeight: 'var(--fontWeight-medium)',
+            transition: 'all var(--transition-normal)'
+          }}
+        >
+          About
+        </Link>
       </nav>
     </header>
   );
