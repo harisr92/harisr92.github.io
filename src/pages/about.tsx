@@ -4,9 +4,7 @@ import { PageProps } from "gatsby"
 import Layout from "../components/Layout"
 import Seo from "../components/Seo"
 
-const AboutIndex: React.FC<PageProps> = ({
-    data
-}) => {
+const AboutIndex: React.FC<PageProps> = () => {
     return (
         <Layout>
             <Seo title="About" />

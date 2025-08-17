@@ -1,7 +1,7 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 
-const HelmetHead: React.FC = ({ children }) => {
+const HelmetHead: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
   return (
       <Helmet>
           <meta charSet="utf-8" />

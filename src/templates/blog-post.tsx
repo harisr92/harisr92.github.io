@@ -11,13 +11,13 @@ type GraphQLResults = {
 
 const BlogPost: React.FC<PageProps<GraphQLResults>> = ({ data }) => {
   const post = data.markdownRemark;
-  const featuredImgFluid = post.frontmatter.featuredImage.childImageSharp.fluid
+  const featuredImgFluid = post.frontmatter.featuredImage?.childImageSharp?.fluid
 
   return (
       <Layout>
           <div>
             <h1>{post.frontmatter.title}</h1>
-            <Img fluid={featuredImgFluid} />
+            {featuredImgFluid && <Img fluid={featuredImgFluid} />}
             <div dangerouslySetInnerHTML={{ __html: post.html }} css={css`
                 margin-top: 10px;
                 `}

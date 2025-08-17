@@ -7,7 +7,14 @@ import Footer from '../Footer'
 import Heading from "./Heading"
 import Container from "./Container"
 
-const Layout: React.FC = ({ children }) => {
+interface LayoutProps {
+  children?: React.ReactNode;
+}
+
+const Layout: React.FC<LayoutProps> & {
+  Heading: typeof Heading;
+  Container: typeof Container;
+} = ({ children }) => {
   return (
     <div css={css`
         margin: 0 auto;
