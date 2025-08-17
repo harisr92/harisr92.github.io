@@ -23,8 +23,13 @@ const Seo: FC<Props> = ({ description, lang, title }) => {
           siteMetadata {
             title
             description
+            author
+            siteUrl
             social {
-              twitter
+              linkedin
+              github
+              email
+              website
             }
           }
         }
@@ -48,6 +53,10 @@ const Seo: FC<Props> = ({ description, lang, title }) => {
           content: metaDescription,
         },
         {
+          name: `author`,
+          content: site.siteMetadata?.author || ``,
+        },
+        {
           property: `og:title`,
           content: title,
         },
@@ -60,20 +69,20 @@ const Seo: FC<Props> = ({ description, lang, title }) => {
           content: `website`,
         },
         {
-          name: `twitter:card`,
+          property: `og:url`,
+          content: site.siteMetadata?.siteUrl || ``,
+        },
+        {
+          property: `og:site_name`,
+          content: site.siteMetadata?.title || ``,
+        },
+        {
+          name: `linkedin:card`,
           content: `summary`,
         },
         {
-          name: `twitter:creator`,
-          content: site.siteMetadata?.social?.twitter || ``,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
+          name: `linkedin:creator`,
+          content: site.siteMetadata?.social?.linkedin || ``,
         },
       ]}
     />
