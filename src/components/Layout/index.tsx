@@ -19,6 +19,15 @@ const Layout: React.FC = ({ children }) => {
         <Header />
         <main>{children}</main>
         <Footer />
+        
+        {/* Floating Action Button for Contact */}
+        <a 
+          href="mailto:harikrishnansr92@gmail.com" 
+          className="fab"
+          title="Get in touch"
+        >
+          ✉️
+        </a>
     </div>
   )
 }

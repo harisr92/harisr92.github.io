@@ -11,14 +11,77 @@ function myDetails(): React.FC<PageProps> {
       <div css={css`
             text-align: center;
           `} >
-        <Layout.Heading title="Harikrishnan Namboothiri" />
-        <Layout.Container>
-          <p>
-            I am a web developer. I'm interested in technologies like Ruby, Ruby on Rails, Golang and different frameworks.
-            I am also interested in devops and handling servers. If you are intersted please have look
-            at the <a href="/blogs">Blogs</a> and <a href="/about">About</a> page.
+        <div className="glass-card" style={{ textAlign: 'center', marginBottom: '2rem' }}>
+          <Layout.Heading title="Harikrishnan Namboothiri" />
+          <p style={{ 
+            fontSize: 'var(--fontSize-3)', 
+            color: 'var(--color-text-light)',
+            marginBottom: '1rem',
+            lineHeight: 'var(--lineHeight-relaxed)'
+          }}>
+            Senior Backend Engineer — High-Scale APIs & Performance Optimization
           </p>
-        </Layout.Container>
+          <p style={{ 
+            fontSize: 'var(--fontSize-2)', 
+            color: 'var(--color-text-muted)',
+            marginBottom: '2rem',
+            lineHeight: 'var(--lineHeight-relaxed)'
+          }}>
+            <span className="text-gradient">Ruby on Rails</span> & <span className="text-gradient">AWS</span> Expert
+          </p>
+        </div>
+        
+        <div className="glass-card">
+          <Layout.Container>
+            <p style={{ 
+              fontSize: 'var(--fontSize-3)', 
+              lineHeight: 'var(--lineHeight-relaxed)',
+              marginBottom: '2rem',
+              textAlign: 'center'
+            }}>
+              Senior Backend Engineer with <strong>8+ years of experience</strong> architecting and scaling SaaS platforms 
+              from MVP to millions of monthly transactions. Specialized in high-scale API development and performance 
+              optimization with proven success in driving user growth and revenue gains.
+            </p>
+            
+            <div className="grid grid-cols-3" style={{ marginBottom: '2rem', gap: 'var(--spacing-6)' }}>
+              <div className="glass" style={{ padding: 'var(--spacing-6)', textAlign: 'center' }}>
+                <h3 style={{ color: 'var(--color-primary)', marginBottom: 'var(--spacing-2)' }}>5,000+</h3>
+                <p style={{ fontSize: 'var(--fontSize-1)', color: 'var(--color-text-light)' }}>Daily API Requests</p>
+              </div>
+              <div className="glass" style={{ padding: 'var(--spacing-6)', textAlign: 'center' }}>
+                <h3 style={{ color: 'var(--color-primary)', marginBottom: 'var(--spacing-2)' }}>40%</h3>
+                <p style={{ fontSize: 'var(--fontSize-1)', color: 'var(--color-text-light)' }}>Performance Improvement</p>
+              </div>
+              <div className="glass" style={{ padding: 'var(--spacing-6)', textAlign: 'center' }}>
+                <h3 style={{ color: 'var(--color-primary)', marginBottom: 'var(--spacing-2)' }}>30%</h3>
+                <p style={{ fontSize: 'var(--fontSize-1)', color: 'var(--color-text-light)' }}>Database Load Reduction</p>
+              </div>
+            </div>
+
+            <p style={{ 
+              fontSize: 'var(--fontSize-3)', 
+              lineHeight: 'var(--lineHeight-relaxed)',
+              marginBottom: '2rem',
+              textAlign: 'center'
+            }}>
+              Currently developing a fintech application in <span className="text-gradient">Rust</span>, 
+              with planned blockchain integration using <span className="text-gradient">Solana</span>.
+            </p>
+            
+            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <a href="/about" className="btn btn-primary">
+                View Experience
+              </a>
+              <a href="/blogs" className="btn btn-glass">
+                Read My Blog
+              </a>
+              <a href="mailto:harikrishnansr92@gmail.com" className="btn btn-glass">
+                Get In Touch
+              </a>
+            </div>
+          </Layout.Container>
+        </div>
       </div>
     </Layout>
   )
