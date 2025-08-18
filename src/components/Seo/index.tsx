@@ -84,6 +84,22 @@ const Seo: FC<Props> = ({ description, lang, title }) => {
           name: `linkedin:creator`,
           content: site.siteMetadata?.social?.linkedin || ``,
         },
+        {
+          name: `theme-color`,
+          content: `#0f0f23`,
+        },
+        {
+          name: `msapplication-TileColor`,
+          content: `#0f0f23`,
+        },
+        {
+          name: `apple-mobile-web-app-status-bar-style`,
+          content: `black-translucent`,
+        },
+        {
+          name: `viewport`,
+          content: `width=device-width, initial-scale=1, viewport-fit=cover`,
+        },
       ]}
     />
   );
