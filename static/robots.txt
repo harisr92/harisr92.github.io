@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /typescript/
+
+Sitemap: https://profile.hari-in-it.in/sitemap.xml
