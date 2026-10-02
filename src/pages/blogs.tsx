@@ -3,7 +3,6 @@ import Layout from "../components/Layout"
 import { css } from "@emotion/react";
 import { graphql, Link, PageProps } from "gatsby";
 import { MarkdownRemark } from "../entities/markdown-remark";
-import { rhythm } from "../utils/typography";
 
 type GraphQLData = {
   allMarkdownRemark: AllMarkdownRemark;
@@ -35,13 +34,13 @@ const BlogIndex: React.FC<PageProps<GraphQLData>> = ({
             >
               <h3
                 css={css`
-                  margin-bottom: ${rhythm(1 / 4)};
+                  margin-bottom: var(--spacing-2);
                 `}
               >
                 {node.frontmatter.title}{" "}
                 <span
                   css={css`
-                    color: #bbb;
+                    color: var(--color-text-muted);
                   `}
                 >
                   — {node.frontmatter.date}

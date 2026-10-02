@@ -1,52 +1,19 @@
 import React, { FC } from 'react';
-import { Link } from 'gatsby';
 
 const Footer: FC = () => {
 
   return (
-    <footer className="glass-card" style={{
-      textAlign: 'center',
-      marginTop: 'var(--spacing-16)',
-    }}>
-      <p style={{ 
-        marginBottom: 'var(--spacing-4)',
-        color: 'var(--color-text-light)'
-      }}>
+    <footer className="site-footer">
+      <p>
         © {new Date().getFullYear()} Harikrishnan Namboothiri. Built with{' '}
-        <a 
-          href="https://www.gatsbyjs.com" 
-          className="text-gradient"
-          style={{ textDecoration: 'none', fontWeight: 'var(--fontWeight-medium)' }}
-        >
-          Gatsby
-        </a>
-        {' '}and enhanced with{' '}
-        <a 
-          href="https://claude.ai/code" 
-          className="text-gradient"
-          style={{ textDecoration: 'none', fontWeight: 'var(--fontWeight-medium)' }}
-        >
-          Claude Code
-        </a>
+        <a href="https://www.gatsbyjs.com">Gatsby</a> and{' '}
+        <a href="https://claude.ai/code">Claude Code</a>
       </p>
-      <nav style={{ 
-        display: 'flex', 
-        justifyContent: 'center', 
-        gap: 'var(--spacing-4)',
-        margin: 'var(--spacing-4) 0' 
-      }}>
+      <nav className="social" aria-label="Elsewhere">
         <a
-          href="https://harisr92.github.io"
+          href="https://profile.hari-in-it.in"
           target="_blank"
           rel="noopener noreferrer"
-          className="btn-glass"
-          style={{ 
-            padding: 'var(--spacing-3)',
-            borderRadius: '50%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
-          }}
         >
           <svg
             width="20"
@@ -64,14 +31,6 @@ const Footer: FC = () => {
           href="//github.com/harisr92"
           target="_blank"
           rel="noopener noreferrer"
-          className="btn-glass"
-          style={{ 
-            padding: 'var(--spacing-3)',
-            borderRadius: '50%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
-          }}
         >
           <svg
             width="20"
@@ -89,14 +48,6 @@ const Footer: FC = () => {
           href="//linkedin.com/in/harikrishnan-namboothiri"
           target="_blank"
           rel="noopener noreferrer"
-          className="btn-glass"
-          style={{ 
-            padding: 'var(--spacing-3)',
-            borderRadius: '50%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
-          }}
         >
           <svg
             width="20"

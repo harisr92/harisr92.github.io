@@ -3,34 +3,38 @@ import { HeadFC, PageProps } from "gatsby"
 
 import Layout from "../components/Layout"
 import Seo from "../components/Seo"
+import { resume, RESUME_PDF_PATH } from "../data/resume"
+
+const RESUME_FILENAME = "Harikrishnan-Namboothiri-Resume.pdf"
 
 const AboutIndex: React.FC<PageProps> = () => {
     return (
         <Layout>
             <div>
-                <Layout.Heading title="About Me" />
-                
+                <div className="about-heading">
+                    <Layout.Heading title="About Me" />
+                    <a href={RESUME_PDF_PATH} download={RESUME_FILENAME} className="btn btn-primary">
+                        ⬇ Download Resume (PDF)
+                    </a>
+                </div>
+
                 {/* Professional Summary */}
                 <div className="glass-card">
                     <h2 style={{ color: 'var(--color-heading)', marginBottom: 'var(--spacing-4)' }}>
                         Professional Summary
                     </h2>
-                    <p style={{ 
-                        fontSize: 'var(--fontSize-3)', 
-                        lineHeight: 'var(--lineHeight-relaxed)',
-                        marginBottom: 'var(--spacing-4)'
-                    }}>
-                        Senior Backend Engineer with 8+ years of experience architecting and scaling SaaS platforms from MVP 
-                        to millions of monthly transactions. I specialize in high-scale API development and performance 
-                        optimization, with proven success in driving user growth, revenue gains, and system efficiency improvements.
-                    </p>
-                    <p style={{ 
-                        fontSize: 'var(--fontSize-3)', 
-                        lineHeight: 'var(--lineHeight-relaxed)'
-                    }}>
-                        Skilled in Ruby on Rails, AWS, PostgreSQL, and CI/CD automation. Experienced in remote, 
-                        cross-cultural team leadership across multiple time zones.
-                    </p>
+                    {resume.summary.map((paragraph, index) => (
+                        <p
+                            key={index}
+                            style={{
+                                fontSize: 'var(--fontSize-3)',
+                                lineHeight: 'var(--lineHeight-relaxed)',
+                                marginBottom: index < resume.summary.length - 1 ? 'var(--spacing-4)' : 0
+                            }}
+                        >
+                            {paragraph}
+                        </p>
+                    ))}
                 </div>
 
                 {/* Work Experience */}
@@ -38,122 +42,34 @@ const AboutIndex: React.FC<PageProps> = () => {
                     <h2 style={{ color: 'var(--color-heading)', marginBottom: 'var(--spacing-6)' }}>
                         Professional Experience
                     </h2>
-                    
-                    {/* Thoughtworks Current */}
-                    <div style={{ marginBottom: 'var(--spacing-8)' }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 'var(--spacing-3)' }}>
-                            <div>
-                                <h3 style={{ color: 'var(--color-primary)', marginBottom: 'var(--spacing-1)' }}>
-                                    Senior Software Engineer (Senior Consultant)
-                                </h3>
-                                <p style={{ color: 'var(--color-text-light)', fontSize: 'var(--fontSize-2)' }}>
-                                    Thoughtworks — India · Java · PostgreSQL · Kafka · Redis · React
-                                </p>
-                            </div>
-                            <span style={{
-                                background: 'var(--color-primary)',
-                                color: 'white',
-                                padding: 'var(--spacing-1) var(--spacing-3)',
-                                borderRadius: 'var(--radius-md)',
-                                fontSize: 'var(--fontSize-1)'
-                            }}>
-                                Sep 2025 – Present
-                            </span>
-                        </div>
-                        <ul style={{ marginLeft: 'var(--spacing-4)' }}>
-                            <li>Build backend services for a supply-chain replenishment platform on Java, PostgreSQL, Kafka, and Redis, delivering production features end to end</li>
-                            <li>Implement replenishment workflows within an event-driven Kafka architecture, keeping inventory state consistent across asynchronous producers and consumers</li>
-                            <li>Tune PostgreSQL data access and Redis caching for reliable, predictable service latency under production load</li>
-                            <li>Work across backend and React frontend components, partnering with product and engineering teams to scope and ship client-facing features</li>
-                        </ul>
-                    </div>
 
-                    {/* Qoyod */}
-                    <div style={{ marginBottom: 'var(--spacing-8)' }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 'var(--spacing-3)' }}>
-                            <div>
-                                <h3 style={{ color: 'var(--color-primary)', marginBottom: 'var(--spacing-1)' }}>
-                                    Senior Software Engineer
-                                </h3>
-                                <p style={{ color: 'var(--color-text-light)', fontSize: 'var(--fontSize-2)' }}>
-                                    Qoyod — Remote
-                                </p>
+                    {resume.experience.map((job) => (
+                        <div key={`${job.company}-${job.period}`} style={{ marginBottom: 'var(--spacing-8)' }}>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 'var(--spacing-3)' }}>
+                                <div>
+                                    <h3 style={{ color: 'var(--color-primary)', marginBottom: 'var(--spacing-1)' }}>
+                                        {job.title}
+                                    </h3>
+                                    <p style={{ color: 'var(--color-text-light)', fontSize: 'var(--fontSize-2)' }}>
+                                        {job.company}
+                                    </p>
+                                </div>
+                                <span style={{
+                                    background: job.current ? 'var(--fg)' : 'var(--color-surface)',
+                                    color: job.current ? 'var(--bg)' : 'var(--color-text)',
+                                    padding: 'var(--spacing-1) var(--spacing-3)',
+                                    borderRadius: 'var(--radius-md)',
+                                    fontSize: 'var(--fontSize-1)',
+                                    whiteSpace: 'nowrap'
+                                }}>
+                                    {job.period}
+                                </span>
                             </div>
-                            <span style={{ 
-                                background: 'var(--color-primary)', 
-                                color: 'white', 
-                                padding: 'var(--spacing-1) var(--spacing-3)',
-                                borderRadius: 'var(--radius-md)',
-                                fontSize: 'var(--fontSize-1)'
-                            }}>
-                                Mar 2024 – Apr 2025
-                            </span>
+                            <ul style={{ marginLeft: 'var(--spacing-4)' }}>
+                                {job.highlights.map((item) => <li key={item}>{item}</li>)}
+                            </ul>
                         </div>
-                        <ul style={{ marginLeft: 'var(--spacing-4)' }}>
-                            <li>Led engineering team to deliver mission-critical features in Ruby on Rails & React</li>
-                            <li>Reduced database load by 30% and cut API response times by 40%</li>
-                            <li>Optimized reporting module architecture, reducing data processing time from 5s to 1s</li>
-                            <li>Partnered with product teams to launch features contributing to user growth</li>
-                        </ul>
-                    </div>
-
-                    {/* Event Inc */}
-                    <div style={{ marginBottom: 'var(--spacing-8)' }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 'var(--spacing-3)' }}>
-                            <div>
-                                <h3 style={{ color: 'var(--color-primary)', marginBottom: 'var(--spacing-1)' }}>
-                                    Senior Software Engineer
-                                </h3>
-                                <p style={{ color: 'var(--color-text-light)', fontSize: 'var(--fontSize-2)' }}>
-                                    Event Inc GmbH — Remote
-                                </p>
-                            </div>
-                            <span style={{ 
-                                background: 'var(--color-surface)', 
-                                color: 'var(--color-text)', 
-                                padding: 'var(--spacing-1) var(--spacing-3)',
-                                borderRadius: 'var(--radius-md)',
-                                fontSize: 'var(--fontSize-1)'
-                            }}>
-                                Mar 2022 – Oct 2023
-                            </span>
-                        </div>
-                        <ul style={{ marginLeft: 'var(--spacing-4)' }}>
-                            <li>Designed scalable API processing 5,000+ requests daily</li>
-                            <li>Built GraphQL layer reducing redundant API calls</li>
-                            <li>Integrated multiple third-party services and automated workflows</li>
-                            <li>Used Elasticsearch to enhance search capabilities</li>
-                        </ul>
-                    </div>
-
-                    {/* Previous Qoyod */}
-                    <div style={{ marginBottom: 'var(--spacing-8)' }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 'var(--spacing-3)' }}>
-                            <div>
-                                <h3 style={{ color: 'var(--color-primary)', marginBottom: 'var(--spacing-1)' }}>
-                                    Software Engineer
-                                </h3>
-                                <p style={{ color: 'var(--color-text-light)', fontSize: 'var(--fontSize-2)' }}>
-                                    Qoyod — Remote
-                                </p>
-                            </div>
-                            <span style={{ 
-                                background: 'var(--color-surface)', 
-                                color: 'var(--color-text)', 
-                                padding: 'var(--spacing-1) var(--spacing-3)',
-                                borderRadius: 'var(--radius-md)',
-                                fontSize: 'var(--fontSize-1)'
-                            }}>
-                                Apr 2019 – Feb 2022
-                            </span>
-                        </div>
-                        <ul style={{ marginLeft: 'var(--spacing-4)' }}>
-                            <li>Developed secure REST APIs handling millions of financial records</li>
-                            <li>Designed Audit module enabling customer self-auditing</li>
-                            <li>Implemented CI/CD pipeline reducing deployment time from 7 days to 1 day</li>
-                            <li>Led code reviews and mentored junior engineers</li>
-                        </ul>
-                    </div>
+                    ))}
                 </div>
 
                 {/* Technologies */}
@@ -162,48 +78,29 @@ const AboutIndex: React.FC<PageProps> = () => {
                         Technologies & Skills
                     </h2>
                     <div className="grid grid-cols-2" style={{ gap: 'var(--spacing-6)' }}>
-                        <div>
-                            <h3 style={{ color: 'var(--color-primary)', marginBottom: 'var(--spacing-3)' }}>
-                                Languages & Frameworks
-                            </h3>
-                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--spacing-2)' }}>
-                                {['Ruby on Rails', 'Rust', 'React', 'Next.js'].map((tech, index) => (
-                                    <span 
-                                        key={index}
-                                        style={{ 
-                                            background: 'var(--glass-bg)',
-                                            padding: 'var(--spacing-2) var(--spacing-3)',
-                                            borderRadius: 'var(--radius-md)',
-                                            fontSize: 'var(--fontSize-1)',
-                                            border: '1px solid var(--glass-border)'
-                                        }}
-                                    >
-                                        {tech}
-                                    </span>
-                                ))}
+                        {resume.skills.map((group) => (
+                            <div key={group.name}>
+                                <h3 style={{ color: 'var(--color-primary)', marginBottom: 'var(--spacing-3)' }}>
+                                    {group.name}
+                                </h3>
+                                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--spacing-2)' }}>
+                                    {group.items.map((tech) => (
+                                        <span
+                                            key={tech}
+                                            style={{
+                                                background: 'var(--card)',
+                                                padding: 'var(--spacing-2) var(--spacing-3)',
+                                                borderRadius: '999px',
+                                                fontSize: 'var(--fontSize-1)',
+                                                border: '1px solid var(--line)'
+                                            }}
+                                        >
+                                            {tech}
+                                        </span>
+                                    ))}
+                                </div>
                             </div>
-                        </div>
-                        <div>
-                            <h3 style={{ color: 'var(--color-primary)', marginBottom: 'var(--spacing-3)' }}>
-                                Databases & Infrastructure
-                            </h3>
-                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--spacing-2)' }}>
-                                {['PostgreSQL', 'Redis', 'Elasticsearch', 'AWS', 'Docker'].map((tech, index) => (
-                                    <span 
-                                        key={index}
-                                        style={{ 
-                                            background: 'var(--glass-bg)',
-                                            padding: 'var(--spacing-2) var(--spacing-3)',
-                                            borderRadius: 'var(--radius-md)',
-                                            fontSize: 'var(--fontSize-1)',
-                                            border: '1px solid var(--glass-border)'
-                                        }}
-                                    >
-                                        {tech}
-                                    </span>
-                                ))}
-                            </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
 
@@ -212,22 +109,16 @@ const AboutIndex: React.FC<PageProps> = () => {
                     <h2 style={{ color: 'var(--color-heading)', marginBottom: 'var(--spacing-6)' }}>
                         Education
                     </h2>
-                    <div style={{ marginBottom: 'var(--spacing-4)' }}>
-                        <h3 style={{ color: 'var(--color-primary)', marginBottom: 'var(--spacing-1)' }}>
-                            MCA, Software Engineering & Web Development
-                        </h3>
-                        <p style={{ color: 'var(--color-text-light)' }}>
-                            Federal Institute of Science and Technology (FISAT), 2016
-                        </p>
-                    </div>
-                    <div>
-                        <h3 style={{ color: 'var(--color-primary)', marginBottom: 'var(--spacing-1)' }}>
-                            BCA, Software Engineering & Data Science
-                        </h3>
-                        <p style={{ color: 'var(--color-text-light)' }}>
-                            Bharathiar University, 2013
-                        </p>
-                    </div>
+                    {resume.education.map((entry, index) => (
+                        <div key={entry.degree} style={{ marginBottom: index < resume.education.length - 1 ? 'var(--spacing-4)' : 0 }}>
+                            <h3 style={{ color: 'var(--color-primary)', marginBottom: 'var(--spacing-1)' }}>
+                                {entry.degree}
+                            </h3>
+                            <p style={{ color: 'var(--color-text-light)' }}>
+                                {entry.school}
+                            </p>
+                        </div>
+                    ))}
                 </div>
 
                 {/* Contact */}
@@ -236,19 +127,22 @@ const AboutIndex: React.FC<PageProps> = () => {
                         Get In Touch
                     </h2>
                     <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                        <a href="mailto:harikrishnansr92@gmail.com" className="btn btn-primary">
+                        <a href={`mailto:${resume.contact.email}`} className="btn btn-primary">
                             📧 Email Me
                         </a>
-                        <a href="https://harisr92.github.io" target="_blank" rel="noopener noreferrer" className="btn btn-glass">
+                        <a href={RESUME_PDF_PATH} download={RESUME_FILENAME} className="btn btn-glass">
+                            📄 Resume PDF
+                        </a>
+                        <a href={`https://${resume.contact.website}`} target="_blank" rel="noopener noreferrer" className="btn btn-glass">
                             🌐 Website
                         </a>
-                        <a href="//linkedin.com/in/harikrishnan-namboothiri" target="_blank" rel="noopener noreferrer" className="btn btn-glass">
+                        <a href={`//${resume.contact.linkedin}`} target="_blank" rel="noopener noreferrer" className="btn btn-glass">
                             💼 LinkedIn
                         </a>
-                        <a href="//github.com/harisr92" target="_blank" rel="noopener noreferrer" className="btn btn-glass">
+                        <a href={`//${resume.contact.github}`} target="_blank" rel="noopener noreferrer" className="btn btn-glass">
                             🔗 GitHub
                         </a>
-                        <a href="tel:+918281232380" className="btn btn-glass">
+                        <a href={`tel:${resume.contact.phone.replace(/\s/g, '')}`} className="btn btn-glass">
                             📱 Call Me
                         </a>
                     </div>

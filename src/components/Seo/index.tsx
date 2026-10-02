@@ -56,9 +56,10 @@ const Seo: FC<Props> = ({ description, lang, title }) => {
       <meta property="og:site_name" content={site.siteMetadata?.title || ``} />
       <meta name="linkedin:card" content="summary" />
       <meta name="linkedin:creator" content={site.siteMetadata?.social?.linkedin || ``} />
-      <meta name="theme-color" content="#0f0f23" />
-      <meta name="msapplication-TileColor" content="#0f0f23" />
-      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+      <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F4F2FF" />
+      <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#15182F" />
+      <meta name="msapplication-TileColor" content="#15182F" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="default" />
       <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     </>
   );

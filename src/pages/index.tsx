@@ -1,87 +1,50 @@
-import { css } from "@emotion/react";
-import { HeadFC, PageProps } from "gatsby";
+import { HeadFC, Link, PageProps } from "gatsby";
 import React from "react"
 import Layout from "../components/Layout"
 import Seo from '../components/Seo';
+import SkyHero from '../components/SkyHero';
 
 function myDetails(): React.JSX.Element {
   return (
-    <Layout>
-      <div css={css`
-            text-align: center;
-          `} >
-        <div className="glass-card" style={{ textAlign: 'center', marginBottom: '2rem' }}>
-          <Layout.Heading title="Harikrishnan Namboothiri" />
-          <p style={{ 
-            fontSize: 'var(--fontSize-3)', 
-            color: 'var(--color-text-light)',
-            marginBottom: '1rem',
-            lineHeight: 'var(--lineHeight-relaxed)'
-          }}>
-            Senior Backend Engineer — High-Scale APIs & Performance Optimization
-          </p>
-          <p style={{ 
-            fontSize: 'var(--fontSize-2)', 
-            color: 'var(--color-text-muted)',
-            marginBottom: '2rem',
-            lineHeight: 'var(--lineHeight-relaxed)'
-          }}>
-            <span className="text-gradient">Ruby on Rails</span> & <span className="text-gradient">AWS</span> Expert
-          </p>
+    <Layout hero={<SkyHero />}>
+      <section className="block">
+        <p className="lede">Backends that hold steady when the traffic doesn't.</p>
+        <p className="sub">
+          Senior Backend Engineer with <strong>8+ years of experience</strong> architecting and scaling SaaS
+          platforms from MVP to millions of monthly transactions. Specialized in high-scale API development and
+          performance optimization, with a focus on <span className="text-gradient">Ruby on Rails</span> and{' '}
+          <span className="text-gradient">AWS</span>.
+        </p>
+        <div className="stats-row">
+          <div><strong>5,000+</strong><h3>Daily API requests</h3><p>Served reliably on production SaaS platforms.</p></div>
+          <div><strong>40%</strong><h3>Performance improvement</h3><p>From profiling, caching and query tuning.</p></div>
+          <div><strong>30%</strong><h3>Database load reduction</h3><p>Fewer, cheaper queries against PostgreSQL.</p></div>
         </div>
-        
-        <div className="glass-card">
-          <Layout.Container>
-            <p style={{ 
-              fontSize: 'var(--fontSize-3)', 
-              lineHeight: 'var(--lineHeight-relaxed)',
-              marginBottom: '2rem',
-              textAlign: 'center'
-            }}>
-              Senior Backend Engineer with <strong>8+ years of experience</strong> architecting and scaling SaaS platforms 
-              from MVP to millions of monthly transactions. Specialized in high-scale API development and performance 
-              optimization with proven success in driving user growth and revenue gains.
-            </p>
-            
-            <div className="grid grid-cols-3 stats-grid" style={{ marginBottom: '2rem', gap: 'var(--spacing-6)' }}>
-              <div className="glass" style={{ padding: 'var(--spacing-4)', textAlign: 'center' }}>
-                <h3 style={{ color: 'var(--color-primary)', marginBottom: 'var(--spacing-2)', fontSize: 'var(--fontSize-5)' }}>5,000+</h3>
-                <p style={{ fontSize: 'var(--fontSize-1)', color: 'var(--color-text-light)', lineHeight: '1.4' }}>Daily API Requests</p>
-              </div>
-              <div className="glass" style={{ padding: 'var(--spacing-4)', textAlign: 'center' }}>
-                <h3 style={{ color: 'var(--color-primary)', marginBottom: 'var(--spacing-2)', fontSize: 'var(--fontSize-5)' }}>40%</h3>
-                <p style={{ fontSize: 'var(--fontSize-1)', color: 'var(--color-text-light)', lineHeight: '1.4' }}>Performance Improvement</p>
-              </div>
-              <div className="glass" style={{ padding: 'var(--spacing-4)', textAlign: 'center' }}>
-                <h3 style={{ color: 'var(--color-primary)', marginBottom: 'var(--spacing-2)', fontSize: 'var(--fontSize-5)' }}>30%</h3>
-                <p style={{ fontSize: 'var(--fontSize-1)', color: 'var(--color-text-light)', lineHeight: '1.4' }}>Database Load Reduction</p>
-              </div>
-            </div>
+      </section>
 
-            <p style={{ 
-              fontSize: 'var(--fontSize-3)', 
-              lineHeight: 'var(--lineHeight-relaxed)',
-              marginBottom: '2rem',
-              textAlign: 'center'
-            }}>
-              Currently developing a fintech application in <span className="text-gradient">Rust</span>, 
-              with planned blockchain integration using <span className="text-gradient">Solana</span>.
-            </p>
-            
-            <div className="action-buttons" style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <a href="/about" className="btn btn-primary">
-                View Experience
-              </a>
-              <a href="/blogs" className="btn btn-glass">
-                Read My Blog
-              </a>
-              <a href="mailto:harikrishnansr92@gmail.com" className="btn btn-glass">
-                Get In Touch
-              </a>
-            </div>
-          </Layout.Container>
+      <section className="block">
+        <p className="lede">Currently building in Rust.</p>
+        <p className="sub">
+          Developing a fintech application in <span className="text-gradient">Rust</span>, with planned blockchain
+          integration using <span className="text-gradient">Solana</span>.
+        </p>
+      </section>
+
+      <section className="block cta">
+        <p className="lede">Have a system that needs to scale?</p>
+        <p className="sub">Read about the work, browse the notes, or just say hello.</p>
+        <div className="action-buttons">
+          <Link to="/about" className="btn btn-primary">
+            View Experience
+          </Link>
+          <Link to="/blogs" className="btn btn-glass">
+            Read My Blog
+          </Link>
+          <a href="mailto:harikrishnansr92@gmail.com" className="btn btn-glass">
+            Get In Touch
+          </a>
         </div>
-      </div>
+      </section>
     </Layout>
   )
 }

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1B1F3B"/>
+      <stop offset="1" stop-color="#3A3F6B"/>
+    </linearGradient>
+    <clipPath id="tile"><rect width="512" height="512" rx="112"/></clipPath>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#sky)"/>
+  <g fill="#F4F2FF" opacity=".7">
+    <circle cx="96" cy="104" r="4"/>
+    <circle cx="414" cy="86" r="3"/>
+    <circle cx="430" cy="170" r="2.5"/>
+    <circle cx="70" cy="196" r="2.5"/>
+  </g>
+  <path clip-path="url(#tile)" fill="#0A0B1E" opacity=".55" d="M0 430 C110 400 190 448 300 420 C390 398 450 430 512 414 V512 H0Z"/>
+  <g fill="#F2B880">
+    <rect x="146" y="126" width="46" height="260"/>
+    <rect x="320" y="126" width="46" height="260"/>
+    <rect x="192" y="244" width="128" height="22"/>
+    <rect x="120" y="126" width="98" height="14"/>
+    <rect x="120" y="372" width="98" height="14"/>
+    <rect x="294" y="126" width="98" height="14"/>
+    <rect x="294" y="372" width="98" height="14"/>
+  </g>
+</svg>

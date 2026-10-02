@@ -1,112 +1,66 @@
-import React, { FC, useState } from 'react';
-import { Link, useStaticQuery, graphql } from 'gatsby';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import React, { FC, useEffect, useState } from 'react';
+import { Link } from 'gatsby';
 
-const Header: FC = () => {
+interface Props {
+  // True when the page starts with the sky hero; the nav stays transparent until it scrolls past
+  overHero?: boolean;
+}
+
+const NAV_LINKS = [
+  { to: '/', label: 'Home' },
+  { to: '/blogs', label: 'Blog' },
+  { to: '/about', label: 'About' },
+];
+
+const Header: FC<Props> = ({ overHero = false }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
-  const data = useStaticQuery(graphql`
-    query {
-      logo: file(absolutePath: { regex: "/coming-soon.png/" }) {
-        childImageSharp {
-          gatsbyImageData(layout: FIXED, width: 50, height: 50, quality: 95)
-        }
-      }
-    }
-  `)
+  const [isTransparent, setIsTransparent] = useState(overHero);
 
-  const logo = getImage(data?.logo);
+  useEffect(() => {
+    if (!overHero) return;
+    const scene = document.getElementById('sky-scene');
+    if (!scene) return;
+
+    const update = () => setIsTransparent(scene.getBoundingClientRect().bottom > 0);
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    return () => {
+      window.removeEventListener('scroll', update);
+      window.removeEventListener('resize', update);
+    };
+  }, [overHero]);
+
+  const classes = ['nav'];
+  if (isTransparent) classes.push('over-hero');
+  if (isMenuOpen) classes.push('menu-open');
 
   return (
-    <header className="glass-nav" style={{
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      position: 'sticky',
-      top: '1rem',
-      zIndex: 100,
-      flexWrap: 'wrap',
-    }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-        {logo && <GatsbyImage
-          image={logo}
-          alt="logo"
-          className="logo"
-          style={{ borderRadius: '50%' }}
-        />}
-        <span style={{ 
-          fontWeight: 'var(--fontWeight-bold)', 
-          fontSize: 'var(--fontSize-3)',
-          color: 'var(--color-heading)'
-        }}>
-          Harikrishnan
-        </span>
-      </div>
+    <header className={classes.join(' ')}>
+      <Link to="/" className="brand">
+        Harikrishnan
+      </Link>
 
       <button
         onClick={() => setIsMenuOpen(!isMenuOpen)}
-        style={{
-          display: 'none',
-          background: 'none',
-          border: 'none',
-          fontSize: '1.5rem',
-          color: 'var(--color-text)',
-          cursor: 'pointer',
-          padding: '0.5rem',
-          borderRadius: 'var(--radius-md)',
-        }}
         className="mobile-menu-toggle"
         aria-label="Toggle mobile menu"
+        aria-expanded={isMenuOpen}
       >
         {isMenuOpen ? '✕' : '☰'}
       </button>
 
-      <nav 
-        className={`nav-menu ${isMenuOpen ? 'show' : ''}`}
-        style={{ 
-          display: 'flex', 
-          gap: '2rem',
-        }}
-      >
-        <Link 
-          to="/" 
-          className="btn-glass"
-          style={{ 
-            padding: '0.5rem 1rem',
-            textDecoration: 'none',
-            fontWeight: 'var(--fontWeight-medium)',
-            transition: 'all var(--transition-normal)'
-          }}
-          onClick={() => setIsMenuOpen(false)}
-        >
-          Home
-        </Link>
-        <Link 
-          to="/blogs" 
-          className="btn-glass"
-          style={{ 
-            padding: '0.5rem 1rem',
-            textDecoration: 'none',
-            fontWeight: 'var(--fontWeight-medium)',
-            transition: 'all var(--transition-normal)'
-          }}
-          onClick={() => setIsMenuOpen(false)}
-        >
-          Blog
-        </Link>
-        <Link 
-          to="/about" 
-          className="btn-glass"
-          style={{ 
-            padding: '0.5rem 1rem',
-            textDecoration: 'none',
-            fontWeight: 'var(--fontWeight-medium)',
-            transition: 'all var(--transition-normal)'
-          }}
-          onClick={() => setIsMenuOpen(false)}
-        >
-          About
-        </Link>
+      <nav className={`nav-menu ${isMenuOpen ? 'show' : ''}`}>
+        {NAV_LINKS.map(({ to, label }) => (
+          <Link
+            key={to}
+            to={to}
+            className="nav-link"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            {label}
+          </Link>
+        ))}
       </nav>
     </header>
   );

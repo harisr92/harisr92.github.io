@@ -5,13 +5,13 @@ const config: GatsbyConfig = {
     title: `Harikrishnan Namboothiri`,
     description: `Senior Backend Engineer with 8+ years of experience in high-scale API development, Ruby on Rails, AWS, and performance optimization. Specialized in scaling SaaS platforms to millions of monthly transactions.`,
     author: `Harikrishnan Namboothiri`,
-    siteUrl: `https://harisr92.github.io`,
+    siteUrl: `https://profile.hari-in-it.in`,
     keywords: `Ruby on Rails, Backend Engineer, AWS, API Development, Performance Optimization, PostgreSQL, DevOps, Rust, React`,
     social: {
       linkedin: `harikrishnan-namboothiri`,
       github: `harisr92`,
       email: `harikrishnansr92@gmail.com`,
-      website: `harisr92.github.io`,
+      website: `profile.hari-in-it.in`,
     },
   },
   plugins: [
@@ -36,12 +36,6 @@ const config: GatsbyConfig = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sass`,
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
-    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

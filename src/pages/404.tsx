@@ -3,9 +3,8 @@ import { Link } from "gatsby"
 
 // styles
 const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
+  color: "var(--fg)",
+  padding: "clamp(48px, 10vw, 96px) clamp(20px, 4vw, 48px)",
 }
 const headingStyles = {
   marginTop: 0,
@@ -17,9 +16,8 @@ const paragraphStyles = {
   marginBottom: 48,
 }
 const codeStyles = {
-  color: "#8A6534",
+  color: "var(--accent)",
   padding: 4,
-  backgroundColor: "#FFF4DB",
   fontSize: "1.25rem",
   borderRadius: 4,
 }

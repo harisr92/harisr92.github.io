@@ -21,6 +21,7 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@mdx-js/react": "^2.3.0",
+    "@react-pdf/renderer": "^4.9.0",
     "dotenv": "^18.0.5",
     "gatsby": "^5.16.1",
     "gatsby-plugin-emotion": "^8.16.0",
@@ -29,16 +30,12 @@
     "gatsby-plugin-mdx": "^5.16.0",
     "gatsby-plugin-sass": "^6.16.0",
     "gatsby-plugin-sharp": "^5.16.0",
-    "gatsby-plugin-typography": "^5.16.0",
     "gatsby-source-filesystem": "^5.16.0",
     "gatsby-transformer-remark": "^6.16.0",
     "gatsby-transformer-sharp": "^5.16.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
-    "react-typography": "^0.16.23",
-    "sass": "^1.105.1",
-    "typography": "^0.16.24",
-    "typography-theme-kirkham": "^0.16.19"
+    "sass": "^1.105.1"
   },
   "devDependencies": {
     "@types/node": "^24",
