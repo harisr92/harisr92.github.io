@@ -39,7 +39,36 @@ const AboutIndex: React.FC<PageProps> = () => {
                         Professional Experience
                     </h2>
                     
-                    {/* Qoyod Current */}
+                    {/* Thoughtworks Current */}
+                    <div style={{ marginBottom: 'var(--spacing-8)' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 'var(--spacing-3)' }}>
+                            <div>
+                                <h3 style={{ color: 'var(--color-primary)', marginBottom: 'var(--spacing-1)' }}>
+                                    Senior Software Engineer (Senior Consultant)
+                                </h3>
+                                <p style={{ color: 'var(--color-text-light)', fontSize: 'var(--fontSize-2)' }}>
+                                    Thoughtworks — India · Java · PostgreSQL · Kafka · Redis · React
+                                </p>
+                            </div>
+                            <span style={{
+                                background: 'var(--color-primary)',
+                                color: 'white',
+                                padding: 'var(--spacing-1) var(--spacing-3)',
+                                borderRadius: 'var(--radius-md)',
+                                fontSize: 'var(--fontSize-1)'
+                            }}>
+                                Sep 2025 – Present
+                            </span>
+                        </div>
+                        <ul style={{ marginLeft: 'var(--spacing-4)' }}>
+                            <li>Build backend services for a supply-chain replenishment platform on Java, PostgreSQL, Kafka, and Redis, delivering production features end to end</li>
+                            <li>Implement replenishment workflows within an event-driven Kafka architecture, keeping inventory state consistent across asynchronous producers and consumers</li>
+                            <li>Tune PostgreSQL data access and Redis caching for reliable, predictable service latency under production load</li>
+                            <li>Work across backend and React frontend components, partnering with product and engineering teams to scope and ship client-facing features</li>
+                        </ul>
+                    </div>
+
+                    {/* Qoyod */}
                     <div style={{ marginBottom: 'var(--spacing-8)' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 'var(--spacing-3)' }}>
                             <div>
