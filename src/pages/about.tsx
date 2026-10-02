@@ -1,5 +1,5 @@
 import React from "react"
-import { PageProps } from "gatsby"
+import { HeadFC, PageProps } from "gatsby"
 
 import Layout from "../components/Layout"
 import Seo from "../components/Seo"
@@ -7,7 +7,6 @@ import Seo from "../components/Seo"
 const AboutIndex: React.FC<PageProps> = () => {
     return (
         <Layout>
-            <Seo title="About" />
             <div>
                 <Layout.Heading title="About Me" />
                 
@@ -231,3 +230,5 @@ const AboutIndex: React.FC<PageProps> = () => {
 }
 
 export default AboutIndex
+
+export const Head: HeadFC = () => <Seo title="About" />

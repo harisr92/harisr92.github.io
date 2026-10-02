@@ -1,22 +1,11 @@
+import type { ImageDataLike } from "gatsby-plugin-image";
+
 export type MarkdownRemark = {
     id: string;
     frontmatter: {
       title: string;
       date: string;
-      featuredImage?: {
-        childImageSharp?: {
-          fluid?: {
-            aspectRatio: number;
-            src: string;
-            srcSet: string;
-            sizes: string;
-            base64?: string;
-            tracedSVG?: string;
-            srcWebp?: string;
-            srcSetWebp?: string;
-          };
-        };
-      };
+      featuredImage?: ImageDataLike;
     };
     excerpt: string;
     html: string;

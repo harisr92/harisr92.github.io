@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
-import { Link, useStaticQuery, graphql } from 'gatsby';
-import Image from 'gatsby-image';
+import { Link } from 'gatsby';
 
 const Footer: FC = () => {
 

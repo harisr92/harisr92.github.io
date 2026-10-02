@@ -1,6 +1,6 @@
 import React from "react"
 import Layout from "../components/Layout"
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 import { graphql, Link, PageProps } from "gatsby";
 import { MarkdownRemark } from "../entities/markdown-remark";
 import { rhythm } from "../utils/typography";

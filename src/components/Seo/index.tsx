@@ -6,7 +6,6 @@
  */
 
 import React, { FC } from 'react';
-import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
 interface Props {
@@ -40,68 +39,28 @@ const Seo: FC<Props> = ({ description, lang, title }) => {
   const metaDescription = description || site.siteMetadata.description;
   const defaultTitle = site.siteMetadata?.title;
 
+  const pageTitle = title
+    ? (defaultTitle ? `${title} | ${defaultTitle}` : title)
+    : defaultTitle;
+
   return (
-    <Helmet
-      htmlAttributes={{
-        lang: lang || 'en',
-      }}
-      title={title}
-      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : ''}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          name: `author`,
-          content: site.siteMetadata?.author || ``,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          property: `og:url`,
-          content: site.siteMetadata?.siteUrl || ``,
-        },
-        {
-          property: `og:site_name`,
-          content: site.siteMetadata?.title || ``,
-        },
-        {
-          name: `linkedin:card`,
-          content: `summary`,
-        },
-        {
-          name: `linkedin:creator`,
-          content: site.siteMetadata?.social?.linkedin || ``,
-        },
-        {
-          name: `theme-color`,
-          content: `#0f0f23`,
-        },
-        {
-          name: `msapplication-TileColor`,
-          content: `#0f0f23`,
-        },
-        {
-          name: `apple-mobile-web-app-status-bar-style`,
-          content: `black-translucent`,
-        },
-        {
-          name: `viewport`,
-          content: `width=device-width, initial-scale=1, viewport-fit=cover`,
-        },
-      ]}
-    />
+    <>
+      <html lang={lang || 'en'} />
+      <title>{pageTitle}</title>
+      <meta name="description" content={metaDescription} />
+      <meta name="author" content={site.siteMetadata?.author || ``} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={metaDescription} />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={site.siteMetadata?.siteUrl || ``} />
+      <meta property="og:site_name" content={site.siteMetadata?.title || ``} />
+      <meta name="linkedin:card" content="summary" />
+      <meta name="linkedin:creator" content={site.siteMetadata?.social?.linkedin || ``} />
+      <meta name="theme-color" content="#0f0f23" />
+      <meta name="msapplication-TileColor" content="#0f0f23" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    </>
   );
 };
 

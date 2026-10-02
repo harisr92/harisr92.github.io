@@ -1,6 +1,6 @@
 import React from "react"
 import { PageProps} from "gatsby"
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 
 interface Props {
     title?: string

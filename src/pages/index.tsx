@@ -1,13 +1,12 @@
-import { css } from "@emotion/core";
-import { PageProps } from "gatsby";
+import { css } from "@emotion/react";
+import { HeadFC, PageProps } from "gatsby";
 import React from "react"
 import Layout from "../components/Layout"
 import Seo from '../components/Seo';
 
-function myDetails(): JSX.Element {
+function myDetails(): React.JSX.Element {
   return (
     <Layout>
-      <Seo title="Home" />
       <div css={css`
             text-align: center;
           `} >
@@ -87,7 +86,7 @@ function myDetails(): JSX.Element {
   )
 }
 
-function underMaintenance(): JSX.Element {
+function underMaintenance(): React.JSX.Element {
   return (
       <div>
         <h1>Site under maintance</h1>
@@ -105,3 +104,5 @@ const Home: React.FC<PageProps> = () => {
 }
 
 export default Home;
+
+export const Head: HeadFC = () => <Seo title="Home" />

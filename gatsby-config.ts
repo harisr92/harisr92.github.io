@@ -1,4 +1,3 @@
-import register from 'ts-node';
 import type { GatsbyConfig } from "gatsby";
 
 const config: GatsbyConfig = {
@@ -16,7 +15,6 @@ const config: GatsbyConfig = {
     },
   },
   plugins: [
-    "gatsby-plugin-react-helmet",
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
@@ -34,6 +32,7 @@ const config: GatsbyConfig = {
     },
     `gatsby-transformer-remark`,
     `gatsby-plugin-emotion`,
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sass`,
@@ -54,7 +53,8 @@ const config: GatsbyConfig = {
 };
 
 require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`
+  path: `.env.${process.env.NODE_ENV}`,
+  quiet: true,
 })
 
 export default config;

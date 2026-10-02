@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
-import Image from 'gatsby-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 const Header: FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,15 +9,13 @@ const Header: FC = () => {
     query {
       logo: file(absolutePath: { regex: "/coming-soon.png/" }) {
         childImageSharp {
-          fixed(width: 50, height: 50, quality: 95) {
-            ...GatsbyImageSharpFixed
-          }
+          gatsbyImageData(layout: FIXED, width: 50, height: 50, quality: 95)
         }
       }
     }
   `)
 
-  const logo = data?.logo?.childImageSharp?.fixed;
+  const logo = getImage(data?.logo);
 
   return (
     <header className="glass-nav" style={{
@@ -30,12 +28,12 @@ const Header: FC = () => {
       flexWrap: 'wrap',
     }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-        <Image
-          fixed={logo}
+        {logo && <GatsbyImage
+          image={logo}
           alt="logo"
           className="logo"
           style={{ borderRadius: '50%' }}
-        />
+        />}
         <span style={{ 
           fontWeight: 'var(--fontWeight-bold)', 
           fontSize: 'var(--fontSize-3)',
