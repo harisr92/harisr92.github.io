@@ -36,6 +36,11 @@ const styles = StyleSheet.create({
     color: DUSK,
     marginTop: 4,
   },
+  focus: {
+    fontSize: 8.5,
+    color: MUTED,
+    marginTop: 2,
+  },
   contactRow: {
     flexDirection: "row",
     flexWrap: "wrap",
@@ -140,7 +145,9 @@ const ResumePdf: React.FC = () => {
         <View style={styles.header}>
           <Text style={styles.name}>{resume.name}</Text>
           <Text style={styles.headline}>{resume.headline}</Text>
+          <Text style={styles.focus}>{resume.focus}</Text>
           <View style={styles.contactRow}>
+            <Text style={styles.contactItem}>{resume.location}</Text>
             {links.map((l) => (
               <Link key={l.href} src={l.href} style={styles.contactItem}>
                 {l.label}
@@ -157,13 +164,34 @@ const ResumePdf: React.FC = () => {
 
         <Section title="Professional Experience">
           {resume.experience.map((job) => (
-            <View key={`${job.company}-${job.period}`} style={styles.job} wrap={false}>
-              <View style={styles.jobHeader}>
-                <Text style={styles.jobTitle}>{job.title}</Text>
-                <Text style={styles.jobPeriod}>{job.period}</Text>
+            <View key={`${job.company}-${job.period}`} style={styles.job}>
+              <View wrap={false}>
+                <View style={styles.jobHeader}>
+                  <Text style={styles.jobTitle}>{job.title}</Text>
+                  <Text style={styles.jobPeriod}>{job.period}</Text>
+                </View>
+                <Text style={styles.jobCompany}>
+                  {[job.company, job.location, ...(job.stack ?? [])].filter(Boolean).join(" · ")}
+                </Text>
               </View>
-              <Text style={styles.jobCompany}>{job.company}</Text>
               {job.highlights.map((h) => (
+                <View key={h} style={styles.bullet} wrap={false}>
+                  <Text style={styles.bulletDot}>•</Text>
+                  <Text style={styles.bulletText}>{h}</Text>
+                </View>
+              ))}
+            </View>
+          ))}
+        </Section>
+
+        <Section title="Projects">
+          {resume.projects.map((p) => (
+            <View key={p.name} style={styles.job} wrap={false}>
+              <Text style={styles.jobTitle}>
+                {p.url ? <Link src={p.url}>{p.name}</Link> : p.name}
+              </Text>
+              <Text style={styles.jobCompany}>{p.stack.join(" · ")}</Text>
+              {p.highlights.map((h) => (
                 <View key={h} style={styles.bullet}>
                   <Text style={styles.bulletDot}>•</Text>
                   <Text style={styles.bulletText}>{h}</Text>

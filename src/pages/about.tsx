@@ -53,6 +53,11 @@ const AboutIndex: React.FC<PageProps> = () => {
                                     <p style={{ color: 'var(--color-text-light)', fontSize: 'var(--fontSize-2)' }}>
                                         {job.company}
                                     </p>
+                                    {(job.location || job.stack) && (
+                                        <p style={{ color: 'var(--color-text-light)', fontSize: 'var(--fontSize-1)' }}>
+                                            {[job.location, ...(job.stack ?? [])].filter(Boolean).join(' · ')}
+                                        </p>
+                                    )}
                                 </div>
                                 <span style={{
                                     background: job.current ? 'var(--fg)' : 'var(--color-surface)',
@@ -67,6 +72,28 @@ const AboutIndex: React.FC<PageProps> = () => {
                             </div>
                             <ul style={{ marginLeft: 'var(--spacing-4)' }}>
                                 {job.highlights.map((item) => <li key={item}>{item}</li>)}
+                            </ul>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Projects */}
+                <div className="glass-card">
+                    <h2 style={{ color: 'var(--color-heading)', marginBottom: 'var(--spacing-6)' }}>
+                        Projects
+                    </h2>
+                    {resume.projects.map((project, index) => (
+                        <div key={project.name} style={{ marginBottom: index < resume.projects.length - 1 ? 'var(--spacing-8)' : 0 }}>
+                            <h3 style={{ color: 'var(--color-primary)', marginBottom: 'var(--spacing-1)' }}>
+                                {project.url
+                                    ? <a href={project.url} target="_blank" rel="noopener noreferrer">{project.name}</a>
+                                    : project.name}
+                            </h3>
+                            <p style={{ color: 'var(--color-text-light)', fontSize: 'var(--fontSize-1)', marginBottom: 'var(--spacing-3)' }}>
+                                {project.stack.join(' · ')}
+                            </p>
+                            <ul style={{ marginLeft: 'var(--spacing-4)' }}>
+                                {project.highlights.map((item) => <li key={item}>{item}</li>)}
                             </ul>
                         </div>
                     ))}
@@ -133,17 +160,11 @@ const AboutIndex: React.FC<PageProps> = () => {
                         <a href={RESUME_PDF_PATH} download={RESUME_FILENAME} className="btn btn-glass">
                             📄 Resume PDF
                         </a>
-                        <a href={`https://${resume.contact.website}`} target="_blank" rel="noopener noreferrer" className="btn btn-glass">
-                            🌐 Website
-                        </a>
                         <a href={`//${resume.contact.linkedin}`} target="_blank" rel="noopener noreferrer" className="btn btn-glass">
                             💼 LinkedIn
                         </a>
                         <a href={`//${resume.contact.github}`} target="_blank" rel="noopener noreferrer" className="btn btn-glass">
                             🔗 GitHub
-                        </a>
-                        <a href={`tel:${resume.contact.phone.replace(/\s/g, '')}`} className="btn btn-glass">
-                            📱 Call Me
                         </a>
                     </div>
                 </div>

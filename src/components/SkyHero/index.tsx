@@ -24,7 +24,7 @@ const PHASES = [
   {
     at: 0,
     title: 'Harikrishnan Namboothiri',
-    body: 'Senior Backend Engineer. Eight years building APIs that stay up.',
+    body: 'Senior Backend Engineer. Nine years building APIs that stay up.',
   },
   {
     at: 0.36,

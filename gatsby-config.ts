@@ -3,7 +3,7 @@ import type { GatsbyConfig } from "gatsby";
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `Harikrishnan Namboothiri`,
-    description: `Senior Backend Engineer with 8+ years of experience in high-scale API development, Ruby on Rails, AWS, and performance optimization. Specialized in scaling SaaS platforms to millions of monthly transactions.`,
+    description: `Senior Backend Engineer with 9+ years building and scaling SaaS, financial, and supply-chain platforms. Ruby on Rails, Java, Kafka, PostgreSQL, and AWS, with a focus on API architecture and performance engineering.`,
     author: `Harikrishnan Namboothiri`,
     siteUrl: `https://profile.hari-in-it.in`,
     keywords: `Ruby on Rails, Backend Engineer, AWS, API Development, Performance Optimization, PostgreSQL, DevOps, Rust, React`,

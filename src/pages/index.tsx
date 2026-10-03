@@ -10,13 +10,13 @@ function myDetails(): React.JSX.Element {
       <section className="block">
         <p className="lede">Backends that hold steady when the traffic doesn't.</p>
         <p className="sub">
-          Senior Backend Engineer with <strong>8+ years of experience</strong> architecting and scaling SaaS
-          platforms from MVP to millions of monthly transactions. Specialized in high-scale API development and
-          performance optimization, with a focus on <span className="text-gradient">Ruby on Rails</span> and{' '}
-          <span className="text-gradient">AWS</span>.
+          Senior Backend Engineer with <strong>9+ years of experience</strong> building and scaling SaaS, financial,
+          and supply-chain platforms. Deep in <span className="text-gradient">Ruby on Rails</span> and PostgreSQL,
+          now shipping event-driven services in <span className="text-gradient">Java</span> and{' '}
+          <span className="text-gradient">Kafka</span>.
         </p>
         <div className="stats-row">
-          <div><strong>5,000+</strong><h3>Daily API requests</h3><p>Served reliably on production SaaS platforms.</p></div>
+          <div><strong>5s → 1s</strong><h3>Report generation</h3><p>Reporting module redesigned for a financial SaaS.</p></div>
           <div><strong>40%</strong><h3>Performance improvement</h3><p>From profiling, caching and query tuning.</p></div>
           <div><strong>30%</strong><h3>Database load reduction</h3><p>Fewer, cheaper queries against PostgreSQL.</p></div>
         </div>
@@ -25,8 +25,9 @@ function myDetails(): React.JSX.Element {
       <section className="block">
         <p className="lede">Currently building in Rust.</p>
         <p className="sub">
-          Developing a fintech application in <span className="text-gradient">Rust</span>, with planned blockchain
-          integration using <span className="text-gradient">Solana</span>.
+          Developing a fintech application in <span className="text-gradient">Rust</span>, built on{' '}
+          <a href="https://github.com/harisr92/accounting-blue" target="_blank" rel="noopener noreferrer">accounting-core</a>,
+          my open-source library for double-entry bookkeeping, GST, and financial reporting.
         </p>
       </section>
 
